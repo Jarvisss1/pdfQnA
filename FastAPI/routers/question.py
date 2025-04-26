@@ -11,7 +11,10 @@ class Query(BaseModel):
 def ask_question(query: Query):
     try:
         answer = ask_with_context(query.question)
-        return {"answer": answer}
+        return {
+            "question": query.question,
+            "answer": answer
+        }
     except Exception as e:
         print("❌ Error in ask_with_context:", str(e))
         return {"error": str(e)}

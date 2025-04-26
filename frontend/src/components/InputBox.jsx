@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import sendIcon from "../assets/send.svg"; // Adjust path as needed
 
 const InputBox = ({ onSend }) => {
   const [question, setQuestion] = useState("");
@@ -29,23 +30,31 @@ const InputBox = ({ onSend }) => {
   };
 
   return (
-    <div className="border-t p-4 flex flex-col">
-      <div className="flex">
+    <div className="p-4 pb-9">
+      <div className="relative flex items-center max-w-325 mx-auto shadow-sm bg-white rounded-lg">
         <input
-          className="flex-1 border rounded px-4 py-2"
+          className="w-full py-3 px-4 pl-8 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-black-100 focus:border-black-100"
           placeholder="Send a message..."
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSend()}
         />
         <button
-          className="ml-2 px-4 bg-blue-500 text-white rounded"
+          className="absolute right-3 p-1.5 rounded-full focus:outline-none"
           onClick={handleSend}
         >
-          ➤
+          <img
+            src={sendIcon}
+            alt="Send"
+            className="w-6 h-6 text-gray-500 hover:cursor-pointer mr-3"
+          />
         </button>
       </div>
-      {error && <div className="mt-2 text-red-500 text-sm">⚠️ {error}</div>}
+      {error && (
+        <div className="max-w-4xl mx-auto mt-2 text-red-500 text-sm">
+          ⚠️ {error}
+        </div>
+      )}
     </div>
   );
 };
