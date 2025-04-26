@@ -26,14 +26,14 @@ const ChatArea = ({ chat }) => {
   }
 
   return (
-    <div className="flex-1 overflow-y-auto px-3 md:px-6 py-4">
+    <div className="flex-1 m-4 overflow-y-auto px-3 md:px-6 py-4">
       <div className="max-w-325 mx-auto space-y-6">
         {" "}
         {/* Added container with matching width */}
         {chat.map((item, idx) => (
           <div key={idx} className="mb-6">
             {/* User message */}
-            <div className="flex gap-3 items-start my-12">
+            <div className="flex gap-3 items-start mb-12">
               <div className="bg-purple-200 text-purple-700 rounded-full h-10 w-10 flex-shrink-0 flex items-center justify-center">
                 <span className="font-medium">S</span>
               </div>
@@ -43,7 +43,7 @@ const ChatArea = ({ chat }) => {
             </div>
 
             {/* AI response */}
-            <div className="flex gap-3 items-start">
+            <div className="flex gap-3 items-start mb-12">
               <div className="rounded-full h-10 w-10 flex-shrink-0 flex items-center justify-center overflow-hidden bg-white border border-gray-200">
                 <img
                   src={LOGO_AI}

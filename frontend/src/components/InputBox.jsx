@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import sendIcon from "../assets/send.svg"; // Adjust path as needed
 
 const InputBox = ({ onSend }) => {
   const [question, setQuestion] = useState("");
-  const [error, setError] = useState(null); // <-- state for error
+  const [error, setError] = useState(null);
+  const [isFocused, setIsFocused] = useState(false);
+  const inputRef = useRef(null);
 
   const handleSend = async () => {
     if (!question.trim()) return;
@@ -33,11 +35,16 @@ const InputBox = ({ onSend }) => {
     <div className="p-4 pb-9">
       <div className="relative flex items-center max-w-325 mx-auto shadow-sm bg-white rounded-lg">
         <input
-          className="w-full py-3 px-4 pl-8 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-black-100 focus:border-black-100"
+          ref={inputRef}
+          className={`w-full py-3 px-4 pl-8 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-black-100 focus:border-black-100 ${
+            !isFocused ? "bg-gray-50" : "bg-white"
+          }`}
           placeholder="Send a message..."
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSend()}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
         />
         <button
           className="absolute right-3 p-1.5 rounded-full focus:outline-none"
