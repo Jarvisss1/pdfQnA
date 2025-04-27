@@ -24,12 +24,12 @@ A full-stack application that allows users to upload PDF documents and ask quest
 - **LangChain**: Framework for NLP and LLM applications
 - **ChromaDB**: Vector database for document embeddings
 - **SQLite**: Database for document metadata storage
-- **PyPDF2 (fitz)**: PDF text extraction
+- **PyPDF2**: PDF text extraction
 
 ### NLP Components
 - **Transformers**: Question-answering pipeline
 - **SentenceTransformers**: Text embeddings for semantic search
-- **Ollama **: Local large language model support
+- **Ollama (Mistral)**: Local large language model support
 
 ## Architecture
 
