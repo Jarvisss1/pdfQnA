@@ -159,6 +159,10 @@ The application will be available at `http://localhost:5173`.
 
 
 
+https://github.com/user-attachments/assets/5cbaa117-a70c-4d67-acc2-bdb5f454339a
+
+
+
 ## Future Improvements
 
 - User authentication: Add user accounts to manage document access
